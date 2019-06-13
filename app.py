@@ -42,6 +42,14 @@ def upload():
 	return render_template('upload.html')
 
 
+@application.errorhandler(404)
+def page_not_found(e):
+	return render_template('_404.html'), 404
+
+def page_not_found(e):
+	return render_template('404.html'), 404
+
+
 if __name__ == '__main__':
 	application.config['TEMPLATES_AUTO_RELOAD'] = True
 	application.secret_key = os.urandom(12)
